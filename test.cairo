@@ -10,7 +10,6 @@ func array_sum(arr : felt*, size) -> (sum):
 
     # size is not zero.
     let (sum_of_rest) = array_sum(arr=arr + 1, size=size - 1)
-    serialize_word(sum_of_rest)
     return (sum=[arr] + sum_of_rest)
 end
 
@@ -31,6 +30,7 @@ func main{output_ptr : felt*}():
 
     # Write the sum to the program output.
     serialize_word(sum)
+    serialize_word(ptr + 4)
 
     return ()
 end
