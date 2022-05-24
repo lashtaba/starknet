@@ -10,6 +10,7 @@ func array_sum(arr : felt*, size) -> (sum):
 
     # size is not zero.
     let (sum_of_rest) = array_sum(arr=arr + 1, size=size - 1)
+    serialize_word(sum_of_rest)
     return (sum=[arr] + sum_of_rest)
 end
 
@@ -23,6 +24,7 @@ func main{output_ptr : felt*}():
     assert [ptr] = 9
     assert [ptr + 1] = 16
     assert [ptr + 2] = 25
+    assert [ptr + 3] = 36
 
     # Call array_sum to compute the sum of the elements.
     let (sum) = array_sum(arr=ptr, size=ARRAY_SIZE)
