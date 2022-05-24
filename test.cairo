@@ -30,7 +30,6 @@ func main{output_ptr : felt*}():
 
     # Write the sum to the program output.
     serialize_word(sum)
-    serialize_word(ptr + 4)
 
     return ()
 end
